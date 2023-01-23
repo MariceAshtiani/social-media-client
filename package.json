@@ -9,13 +9,16 @@
     "start": "sass --watch src/scss:dist/css & live-server",
     "test": "node src/js/index.js",
     "format": "prettier -w src/**/*.js",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "Noroff",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
     "eslint": "^8.32.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
     "live-server": "^1.2.2",
     "prettier": "^2.8.3",
     "sass": "^1.54.8"
@@ -30,5 +33,11 @@
   "bugs": {
     "url": "https://github.com/MariceAshtiani/social-media-client/issues"
   },
-  "homepage": "https://github.com/MariceAshtiani/social-media-client#readme"
+  "homepage": "https://github.com/MariceAshtiani/social-media-client#readme",
+  "lint-staged": {
+    "*.js": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ]
+  }
 }
