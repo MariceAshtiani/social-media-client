@@ -1,4 +1,4 @@
-import { createPost } from "./create.mjs";
+import { createPost } from "./create.js";
 
 const mockObject = {
     title: "title",
@@ -20,7 +20,8 @@ function createPostMockSuccess() {
 describe("create", () => {
     it("returns a valid item with a valid input", async () => {
         global.fetch = jest.fn(() => createPostMockSuccess());
-        const result = await createPost("title, body, tags, media");
-        expect(post).toMatchObject(mockObject);
+        const { title, body, tags, media } = mockObject;
+        const result = await createPost(title, body, tags, media);
+        expect(result).toMatchObject(mockObject);
     });
 });
