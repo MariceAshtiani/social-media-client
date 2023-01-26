@@ -1,5 +1,7 @@
 import { createPost } from "./create.js";
 
+// Creates a fake object to "create"
+
 const mockObject = {
     title: "title",
     body: "body",
@@ -8,14 +10,18 @@ const mockObject = {
     id: 2324
 };
 
+// Creates a function to fake the success of creating a post
+
 function createPostMockSuccess() {
     return Promise.resolve({
-        status: 200,
         ok: true,
-        statusText: "Approved",
-        json: () => Promise.resolve(mockObject),
+        status: 200,
+        statusText: "OK",
+        json: () => Promise.resolve(mockObject)
     });
 }
+
+// Testing if the function CreatePost actually works, using createPostMockSuccess
 
 describe("create", () => {
     it("returns a valid item with a valid input", async () => {
