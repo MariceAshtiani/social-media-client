@@ -1,6 +1,6 @@
 // test if the user can log in with the login-form using valid credentials
 
-//const USER_NAME = "Thisisaname";
+
 const EMAIL = "thisismyemail@stud.noroff.no";
 const PASSWORD = "thisismypassword";
 
