@@ -10,6 +10,7 @@ describe("logout", () => {
     });
 
     it("logs out user with logout button", () => {
+        // make sure the user logs in first (probably a better way to do this but I'm running out of time)
         cy.get("#registerModal button")
             .contains("Login")
             .should("be.visible")
@@ -23,6 +24,8 @@ describe("logout", () => {
         cy.wait(1000);
         cy.then(() => expect(localStorage.getItem("token")).to.not.be.null);
         cy.wait(2000);
+
+        //now logged in, lets log out
 
         cy.get("button[data-auth='logout']")
             .click()
