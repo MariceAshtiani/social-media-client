@@ -27,7 +27,7 @@ describe("logout", () => {
 
         //now logged in, lets log out
 
-        cy.get("button[data-auth='logout']")
+        cy.get("button").contains("Logout")
             .click()
             .should(() => {
                 expect(localStorage.getItem('token')).to.be.null
