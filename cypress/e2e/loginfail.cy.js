@@ -19,6 +19,7 @@ describe("loginfail", () => {
         cy.get("input#loginEmail[name='email']").type("wrongemail@hotmail.no");
         cy.get("input#loginPassword[name='password']").type("0987654321");
         cy.get("button[type='submit']").contains("Login").click();
+        cy.wait(500);
         cy.then(() => expect(window.localStorage.getItem("token")).to.be.null);
     });
 
